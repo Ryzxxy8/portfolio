@@ -1,0 +1,1218 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Paingkyaw Thu — Creative Developer & Designer">
+<title>Paingkyaw Thu — Creative Developer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --black:#050505;
+  --dark:#0a0a0a;
+  --white:#f5f5f5;
+  --gray:#858585;
+  --line:rgba(255,255,255,.09);
+  --red:#ff2638;
+  --redGlow:rgba(255,38,56,.16);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+::selection{
+  background:var(--red);
+  color:#fff;
+}
+
+/* ================= CURSOR ================= */
+
+.cursor{
+  position:fixed;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:rgba(255,38,56,.045);
+  filter:blur(55px);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:0;
+}
+
+/* ================= NAV ================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:76px;
+  padding:0 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  background:rgba(5,5,5,.68);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.logo{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.logo span{
+  color:var(--red);
+}
+
+.nav-links{
+  display:flex;
+  gap:32px;
+  list-style:none;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#999;
+}
+
+.nav-links a{
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
+.menu{
+  display:none;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  padding:145px 6% 80px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:80px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  right:-260px;
+  top:70px;
+  background:var(--redGlow);
+  filter:blur(120px);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.eyebrow{
+  color:var(--red);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:26px;
+}
+
+.hero h1{
+  font-size:clamp(55px,8.7vw,125px);
+  line-height:.84;
+  letter-spacing:-7px;
+  font-weight:900;
+  position:relative;
+}
+
+.hero h1 .outline{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.7);
+}
+
+.hero h1 .red{
+  color:var(--red);
+}
+
+.hero-description{
+  max-width:600px;
+  color:var(--gray);
+  font-size:14px;
+  line-height:1.9;
+  margin-top:34px;
+}
+
+.hero-description strong{
+  color:#ddd;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:16px 24px;
+  border:1px solid var(--line);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  transition:.35s;
+}
+
+.btn.primary{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+}
+
+.btn.primary:hover{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-area{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.profile{
+  width:min(390px,100%);
+  aspect-ratio:.78;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.15);
+  transform:rotate(2deg);
+  position:relative;
+  transition:.5s;
+}
+
+.profile:hover{
+  transform:rotate(0deg) translateY(-8px);
+}
+
+.profile:after{
+  content:"";
+  position:absolute;
+  right:-32px;
+  bottom:-32px;
+  width:65%;
+  height:65%;
+  border-right:1px solid var(--red);
+  border-bottom:1px solid var(--red);
+  z-index:-1;
+}
+
+.profile-image{
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(circle at 70% 25%,rgba(255,38,56,.25),transparent 32%),
+    linear-gradient(145deg,#202020,#080808);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.profile-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+}
+
+.photo-placeholder{
+  color:#555;
+  text-align:center;
+  font-size:10px;
+  letter-spacing:3px;
+  line-height:2;
+}
+
+.profile-label{
+  position:absolute;
+  left:-20px;
+  bottom:-16px;
+  background:var(--red);
+  padding:10px 15px;
+  font-size:8px;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+/* ================= GENERAL ================= */
+
+section{
+  padding:125px 6%;
+  position:relative;
+}
+
+.section-label{
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:17px;
+}
+
+.section-title{
+  font-size:clamp(45px,7vw,90px);
+  line-height:.88;
+  letter-spacing:-6px;
+  font-weight:900;
+  margin-bottom:60px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:100px;
+}
+
+.about-heading{
+  font-size:clamp(28px,3.5vw,48px);
+  line-height:1.1;
+  font-weight:800;
+}
+
+.about-heading span{
+  color:var(--red);
+}
+
+.about-copy{
+  max-width:680px;
+  color:var(--gray);
+  font-size:14px;
+  line-height:1.95;
+}
+
+.about-copy p+p{
+  margin-top:20px;
+}
+
+/* ================= EXPERTISE ================= */
+
+.expertise-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+
+.expertise{
+  min-height:170px;
+  padding:25px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.35s;
+}
+
+.expertise:hover{
+  background:#0d0d0d;
+  border-color:rgba(255,38,56,.25);
+}
+
+.expertise-number{
+  color:var(--red);
+  font-size:10px;
+}
+
+.expertise h3{
+  font-size:20px;
+}
+
+.expertise p{
+  color:#666;
+  font-size:11px;
+  line-height:1.5;
+}
+
+/* ================= WORK ================= */
+
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.project{
+  min-height:480px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+  transition:.45s;
+}
+
+.project:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,38,56,.5);
+}
+
+.project-visual{
+  height:315px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 72% 25%,rgba(255,38,56,.28),transparent 30%),
+    linear-gradient(135deg,#1a1a1a,#050505);
+}
+
+.project-visual:before{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  left:43%;
+  top:60px;
+  border:1px solid rgba(255,255,255,.14);
+  transform:rotate(45deg);
+  transition:.6s;
+}
+
+.project:hover .project-visual:before{
+  transform:rotate(135deg) scale(1.2);
+  border-color:var(--red);
+}
+
+.project-number{
+  position:absolute;
+  left:22px;
+  top:20px;
+  font-size:10px;
+  color:#777;
+  letter-spacing:2px;
+}
+
+.project-content{
+  padding:25px;
+}
+
+.project-type{
+  color:var(--red);
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.project h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.project p{
+  color:var(--gray);
+  font-size:12px;
+  line-height:1.7;
+  max-width:500px;
+}
+
+.project-arrow{
+  position:absolute;
+  right:24px;
+  bottom:22px;
+  font-size:22px;
+  transition:.3s;
+}
+
+.project:hover .project-arrow{
+  color:var(--red);
+  transform:translate(6px,-6px);
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+
+.service{
+  padding:38px 0;
+  border-bottom:1px solid var(--line);
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:20px;
+  transition:.3s;
+}
+
+.service:hover{
+  padding-left:15px;
+}
+
+.service-num{
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.service h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.service p{
+  color:var(--gray);
+  font-size:12px;
+  line-height:1.7;
+  max-width:400px;
+}
+
+/* ================= IDENTITY ================= */
+
+.identity{
+  min-height:65vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+.identity:before{
+  content:"PKT";
+  position:absolute;
+  font-size:38vw;
+  font-weight:900;
+  color:rgba(255,255,255,.018);
+  line-height:1;
+}
+
+.identity-content{
+  position:relative;
+}
+
+.identity-small{
+  color:var(--red);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:25px;
+}
+
+.identity h2{
+  font-size:clamp(50px,9vw,125px);
+  letter-spacing:-8px;
+  line-height:.85;
+}
+
+.identity h2 span{
+  color:transparent;
+  -webkit-text-stroke:1px #aaa;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+  min-height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.contact:before{
+  content:"HELLO";
+  position:absolute;
+  left:-20px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:22vw;
+  font-weight:900;
+  color:rgba(255,255,255,.015);
+}
+
+.contact h2{
+  position:relative;
+  font-size:clamp(55px,10vw,150px);
+  line-height:.82;
+  letter-spacing:-8px;
+}
+
+.contact h2 span{
+  color:var(--red);
+}
+
+.contact-links{
+  position:relative;
+  display:flex;
+  gap:35px;
+  flex-wrap:wrap;
+  margin-top:55px;
+}
+
+.contact-links a{
+  color:#999;
+  font-size:12px;
+  transition:.3s;
+}
+
+.contact-links a:hover{
+  color:#fff;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:25px 6%;
+  display:flex;
+  justify-content:space-between;
+  color:#555;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+  .navbar{
+    height:68px;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    width:100%;
+    padding:28px 6%;
+    flex-direction:column;
+    gap:23px;
+    background:rgba(5,5,5,.98);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:125px;
+    gap:60px;
+  }
+
+  .hero h1{
+    letter-spacing:-4px;
+  }
+
+  .profile-area{
+    max-width:350px;
+    margin:auto;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .expertise-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .work-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:90px 6%;
+  }
+}
+
+@media(max-width:500px){
+
+  .hero h1{
+    font-size:54px;
+  }
+
+  .section-title{
+    font-size:48px;
+  }
+
+  .project-visual{
+    height:255px;
+  }
+
+  .expertise{
+    min-height:140px;
+  }
+
+  .expertise h3{
+    font-size:16px;
+  }
+
+  .service{
+    grid-template-columns:45px 1fr;
+  }
+
+  .contact h2{
+    letter-spacing:-5px;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- ================= NAV ================= -->
+
+<nav class="navbar">
+
+  <a href="#home" class="logo">
+    PKT<span>.</span>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#expertise">EXPERTISE</a></li>
+    <li><a href="#work">WORK</a></li>
+    <li><a href="#services">SERVICES</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <div class="menu" id="menu">☰</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="home">
+
+<section class="hero">
+
+  <div class="reveal">
+
+    <div class="eyebrow">
+      HELLO, I'M PAINGKYAWTHU
+    </div>
+
+    <h1>
+      CREATIVE<br>
+      <span class="outline">DEVELOPER</span><br>
+      <span class="red">& DESIGNER.</span>
+    </h1>
+
+    <p class="hero-description">
+      I create <strong>modern websites, interfaces and digital experiences</strong>
+      that combine technology, design, motion and creative AI.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#work" class="btn primary">
+        VIEW MY WORK ↗
+      </a>
+
+      <a href="#contact" class="btn">
+        LET'S TALK
+      </a>
+    </div>
+
+  </div>
+
+
+  <div class="profile-area reveal">
+
+    <div class="profile">
+
+      <div class="profile-image">
+
+        <!--
+          PROFILE PHOTO
+          Upload your photo as:
+          profile.jpg
+        -->
+
+        <img
+          src="profile.jpg"
+          alt="Paingkyaw Thu"
+          onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='block';"
+        >
+
+        <div
+          class="photo-placeholder"
+          id="photoPlaceholder"
+          style="display:none"
+        >
+          YOUR<br>
+          PROFILE PHOTO
+        </div>
+
+      </div>
+
+      <div class="profile-label">
+        PAINGKYAWTHU / 2026
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <div class="section-label reveal">
+    01 / ABOUT
+  </div>
+
+  <h2 class="section-title reveal">
+    A LITTLE<br>ABOUT ME.
+  </h2>
+
+  <div class="about-grid">
+
+    <div class="about-heading reveal">
+      Turning ideas into
+      <span>digital experiences</span>
+      people remember.
+    </div>
+
+    <div class="about-copy reveal">
+
+      <p>
+        I'm Paingkyaw Thu, a creative developer and designer
+        interested in building modern digital products.
+      </p>
+
+      <p>
+        I enjoy combining clean code, visual design,
+        interaction, motion and AI to transform ideas
+        into polished experiences.
+      </p>
+
+      <p>
+        My goal is simple: make digital products feel
+        useful, beautiful and different.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= EXPERTISE ================= -->
+
+<section id="expertise">
+
+  <div class="section-label reveal">
+    02 / EXPERTISE
+  </div>
+
+  <h2 class="section-title reveal">
+    WHAT I<br>CREATE.
+  </h2>
+
+  <div class="expertise-grid">
+
+    <div class="expertise reveal">
+      <div class="expertise-number">01</div>
+      <h3>WEB DEVELOPMENT</h3>
+      <p>Responsive websites and interactive web experiences.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">02</div>
+      <h3>UI / UX DESIGN</h3>
+      <p>Clean interfaces focused on usability and visual impact.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">03</div>
+      <h3>MOTION</h3>
+      <p>Micro-interactions and motion that make interfaces feel alive.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">04</div>
+      <h3>CREATIVE AI</h3>
+      <p>Exploring AI tools to create new digital possibilities.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TECH ================= -->
+
+<section>
+
+  <div class="section-label reveal">
+    03 / TECH STACK
+  </div>
+
+  <h2 class="section-title reveal">
+    TOOLS I<br>USE.
+  </h2>
+
+  <div class="expertise-grid">
+
+    <div class="expertise reveal">
+      <div class="expertise-number">01</div>
+      <h3>HTML / CSS</h3>
+      <p>Structure, styling and responsive layouts.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">02</div>
+      <h3>JAVASCRIPT</h3>
+      <p>Interactive experiences and web functionality.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">03</div>
+      <h3>REACT</h3>
+      <p>Modern component-based interfaces.</p>
+    </div>
+
+    <div class="expertise reveal">
+      <div class="expertise-number">04</div>
+      <h3>AI TOOLS</h3>
+      <p>Creative workflows and experimental products.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WORK ================= -->
+
+<section id="work">
+
+  <div class="section-label reveal">
+    04 / SELECTED WORK
+  </div>
+
+  <h2 class="section-title reveal">
+    PROJECTS<br>I'VE BUILT.
+  </h2>
+
+  <div class="work-grid">
+
+    <article class="project reveal">
+
+      <div class="project-visual">
+        <div class="project-number">PROJECT 01</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-type">WEB APP</div>
+        <h3>Password Generator</h3>
+        <p>
+          A modern password generator focused on
+          simplicity, usability and clean visual design.
+        </p>
+      </div>
+
+      <!-- Change # to your project URL -->
+      <a href="#" class="project-arrow">↗</a>
+
+    </article>
+
+
+    <article class="project reveal">
+
+      <div class="project-visual">
+        <div class="project-number">PROJECT 02</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-type">PORTFOLIO</div>
+        <h3>Creative Portfolio</h3>
+        <p>
+          A cinematic personal portfolio combining
+          typography, motion and interactive design.
+        </p>
+      </div>
+
+      <a href="#" class="project-arrow">↗</a>
+
+    </article>
+
+
+    <article class="project reveal">
+
+      <div class="project-visual">
+        <div class="project-number">PROJECT 03</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-type">AI / PRODUCT</div>
+        <h3>Creative AI Project</h3>
+        <p>
+          An experimental product concept exploring
+          creative workflows powered by artificial intelligence.
+        </p>
+      </div>
+
+      <a href="#" class="project-arrow">↗</a>
+
+    </article>
+
+
+    <article class="project reveal">
+
+      <div class="project-visual">
+        <div class="project-number">PROJECT 04</div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-type">DIGITAL PRODUCT</div>
+        <h3>Future Interface</h3>
+        <p>
+          A futuristic responsive interface concept
+          built around interaction and visual storytelling.
+        </p>
+      </div>
+
+      <a href="#" class="project-arrow">↗</a>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+  <div class="section-label reveal">
+    05 / SERVICES
+  </div>
+
+  <h2 class="section-title reveal">
+    WHAT I<br>CAN DO.
+  </h2>
+
+  <div class="services">
+
+    <div class="service reveal">
+      <div class="service-num">01</div>
+      <div>
+        <h3>Website Development</h3>
+        <p>Modern, responsive and fast websites built for real users.</p>
+      </div>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-num">02</div>
+      <div>
+        <h3>UI / UX Design</h3>
+        <p>Premium interfaces with strong hierarchy and usability.</p>
+      </div>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-num">03</div>
+      <div>
+        <h3>Creative Direction</h3>
+        <p>Visual concepts, typography and digital identity systems.</p>
+      </div>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-num">04</div>
+      <div>
+        <h3>AI Experiments</h3>
+        <p>Exploring AI-powered products and creative workflows.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= IDENTITY ================= -->
+
+<section class="identity">
+
+  <div class="identity-content reveal">
+
+    <div class="identity-small">
+      THIS IS MY IDENTITY
+    </div>
+
+    <h2>
+      PAINGKYAW<br>
+      <span>THU.</span>
+    </h2>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+  <div class="section-label reveal">
+    06 / CONTACT
+  </div>
+
+  <h2 class="reveal">
+    LET'S BUILD<br>
+    <span>SOMETHING.</span>
+  </h2>
+
+  <div class="contact-links reveal">
+
+    <!-- Replace these links with yours -->
+
+    <a href="mailto:your@email.com">
+      EMAIL ↗
+    </a>
+
+    <a href="#" target="_blank">
+      GITHUB ↗
+    </a>
+
+    <a href="#" target="_blank">
+      TIKTOK ↗
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+  <span>© 2026 PAINGKYAWTHU</span>
+  <span>CREATIVE DEVELOPER / DESIGNER</span>
+</footer>
+
+
+<script>
+
+/* ================= MOBILE MENU ================= */
+
+const menu=document.getElementById("menu");
+const navLinks=document.getElementById("navLinks");
+
+menu.addEventListener("click",()=>{
+  navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    navLinks.classList.remove("open");
+  });
+});
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer=new IntersectionObserver(
+  entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  {threshold:.12}
+);
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+
+
+/* ================= RED CURSOR GLOW ================= */
+
+const cursor=document.getElementById("cursor");
+
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+
+</script>
+
+</body>
+</html>
+```
